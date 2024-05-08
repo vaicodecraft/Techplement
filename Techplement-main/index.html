@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Weather App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="card">
+     <div class="search">
+<input type="text" placeholder="enter city name" spellcheck="false">
+<button><img src="images/search.png"></button>
+</div>
+<div class ="Weather">
+    <img src ="images/rain.png" class = "Weather-icon">
+        <h1 class ="temp">22°C</h1>
+        <h2 class="city">New York</h2> I
+<div class="details">
+<div class="col">
+<img src="images/humidity.png"> 
+<div>
+    <p class="humidity">50%</p>
+    <p>humidity</p>
+</div>
+</div>
+<div class="col">
+<img src="images/wind.png"> 
+<div>
+<p class="wind">15 km/h</p>
+<p>Wind speed</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+    const searchInput = document.querySelector('.search input');
+    const findButton = document.querySelector('.search button');
+    const temperature = document.querySelector('.temp');
+    const city = document.querySelector('.city');
+    const humidity = document.querySelector('.humidity');
+    const wind = document.querySelector('.wind');
+
+    
+    function fetchWeatherData(cityName) {
+                const weatherData = {
+            temperature: '22°C',
+            city: cityName,
+            humidity: '50%',
+            wind: '15 km/h'
+        };
+
+        temperature.textContent = weatherData.temperature;
+        city.textContent = weatherData.city;
+        humidity.textContent = weatherData.humidity;
+        wind.textContent = weatherData.wind;
+    }
+
+        findButton.addEventListener('click', function() {
+        const cityName = searchInput.value;
+        if (cityName.trim() !== '') {
+            fetchWeatherData(cityName);
+        } else {
+            alert('Please enter a city name!');
+        }
+    });
+});
+
+
+    
+    
+</script>
+</body> 
+</html>
+
+
